@@ -5,7 +5,7 @@ This is the official PHP wrapper for the WijayaPay Payment Gateway API.
 ## Installation
 
 ```bash
-composer require bionyxxx/wijayapay-php
+composer require bionyxxx/wijayapay-php --dev
 ```
 
 ## Usage
