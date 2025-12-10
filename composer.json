@@ -1,0 +1,28 @@
+{
+    "name": "bionyxxx/wijayapay-php",
+    "description": "WijayaPay Payment Gateway PHP Library",
+    "keywords": [
+        "wijayapay",
+        "payment",
+        "gateway",
+        "php",
+        "sdk"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dutta Fachrezy",
+            "email": "duttafachrezy@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WijayaPay\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
