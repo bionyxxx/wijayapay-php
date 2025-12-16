@@ -28,9 +28,9 @@ class Payment
     public function getChannels(): array
     {
         // Endpoint: /api/get-payment
-        // Method: POST
+        // Method: GET
         // Params: code_merchant, api_key (handled by Client)
 
-        return $this->client->post('get-payment');
+        return $this->client->get('get-payment');
     }
 }
