@@ -1,3 +1,4 @@
 # Ignore vendor directory
 vendor
 .env
+.idea

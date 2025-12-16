@@ -59,8 +59,52 @@ class Client
             'headers' => array_merge($defaultHeaders, $headers),
         ];
 
+        return $this->request('POST', $endpoint, $options);
+    }
+
+    /**
+     * Send a GET request to the API.
+     *
+     * @param string $endpoint
+     * @param array $queryParams
+     * @param array $headers
+     * @return array
+     * @throws \Exception
+     */
+    public function get(string $endpoint, array $queryParams = [], array $headers = []): array
+    {
+        // Add default parameters to query params
+        $query = array_merge([
+            'code_merchant' => $this->config->getMerchantCode(),
+            'api_key' => $this->config->getApiKey(),
+        ], $queryParams);
+
+        $defaultHeaders = [
+            'Accept' => 'application/json',
+            'User-Agent' => 'WijayaPay-PHP/1.0',
+        ];
+
+        $options = [
+            'query' => $query,
+            'headers' => array_merge($defaultHeaders, $headers),
+        ];
+
+        return $this->request('GET', $endpoint, $options);
+    }
+
+    /**
+     * Send request to the API.
+     *
+     * @param string $method
+     * @param string $endpoint
+     * @param array $options
+     * @return array
+     * @throws \Exception
+     */
+    private function request(string $method, string $endpoint, array $options): array
+    {
         try {
-            $response = $this->httpClient->request('POST', $endpoint, $options);
+            $response = $this->httpClient->request($method, $endpoint, $options);
             $body = (string) $response->getBody();
             $json = json_decode($body, true);
 

@@ -53,4 +53,20 @@ class Transaction
         // Endpoint: /api/transaction/create
         return $this->client->post('transaction/create', $data, $headers);
     }
+    /**
+     * Check transaction status.
+     *
+     * @param string $refId
+     * @return array
+     * @throws \Exception
+     */
+    public function checkStatus(string $refId): array
+    {
+        if (empty($refId)) {
+            throw new \InvalidArgumentException('ref_id is required');
+        }
+
+        // Endpoint: /api/get-status
+        return $this->client->get('get-status', ['ref_id' => $refId]);
+    }
 }
