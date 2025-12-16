@@ -57,6 +57,20 @@ try {
 }
 ```
 
+### Check Transaction Status
+
+Check the status of a transaction using its reference ID.
+
+```php
+try {
+    $refId = 'ORDER-12345';
+    $status = $wijayaPay->transaction()->checkStatus($refId);
+    print_r($status);
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
+```
+
 ### Webhook Handling
 
 Handle incoming callbacks from WijayaPay.
